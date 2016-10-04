@@ -1,6 +1,7 @@
 package com.example.haileader.musicrecommend;
 
 import android.content.res.AssetManager;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.haileader.musicrecommend.Ontology.UserProfileOntology;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -33,113 +35,84 @@ import com.hp.hpl.jena.util.FileManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getCanonicalName();
+    private long startCountingTime;
+    private long stopCountingTime;
+    private float timeElapsed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tView = (TextView) findViewById(R.id.output_message);
-        String output = "";
-        Model schema = ModelFactory.createDefaultModel();//FileManager.get().loadModel("file:assets/PO_new.owl");
-        Model model = ModelFactory.createDefaultModel();//FileManager.get().loadModel("file:assets/instance.rdf");
-        InputStream fin;
-        tView.setMovementMethod(new ScrollingMovementMethod());
+//        TextView tView = (TextView) findViewById(R.id.output_message);
+//        tView.setMovementMethod(new ScrollingMovementMethod());
+//        try {
+//            UserProfileOntology profileOntology = new UserProfileOntology(getApplicationContext());
+//            String output = profileOntology.loadOntology();
+//            tView.setText(output);
+//            profileOntology.loadUserInfo();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-        try {
-            AssetManager assetManager = getAssets();
-            fin = assetManager.open("PO_new.owl");
-            schema.read(fin,null);
-            fin.close();
+        //loadUserInfo();
 
-		/*
-			1. 2Item_Instance.rdf - Has two distinct "hasItem" properties with each item explicitly stated different to each other.
-			2. 2Orders_Instance.rdf - Has two "OrderNumber" properties under PurchaseOrder.
-			3. normal_instance.rdf - Working instance of ontology PO_new.owl
-			4. PO_new.owl - contains Purchase Order Ontology.
-			5. StringOrder_Instance - Has a string instead of Integer as Order number.
-		*/
+        new ArtistMusicBrainz().execute();
 
-            model = FileManager.get().loadModel("assets/normal_instance.rdf");
-//			model = FileManager.get().loadModel("assets/2Orders_Instance.rdf");
-//			model = FileManager.get().loadModel("assets/2Item_Instance.rdf");
-//			model = FileManager.get().loadModel("assets/StringOrder_Instance.rdf");
-        } catch (IOException e){
-            e.printStackTrace();
+    }
+
+
+    public class ArtistMusicBrainz extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            showLogAndToast("Excute");
         }
 
-        Reasoner reasoner = ReasonerRegistry.getOWLMiniReasoner();
-        reasoner = reasoner.bindSchema(schema);
-
-        InfModel infmodel = ModelFactory.createInfModel(reasoner, model);
-        ValidityReport validity = infmodel.validate();
-        if (validity.isValid()) {
-            output += "Order Confirmed\n";
-            output = getInfo(infmodel, model, output);
-        } else {
-            for (Iterator<Report> iterator = validity.getReports(); iterator.hasNext();) {
-                ValidityReport.Report report = iterator.next();
-                output += "ERROR: " + report.getType();
-                output += " - " + report.getDescription();
+        @Override
+        protected Void doInBackground(Void... voids) {
+            String queryString = "PREFIX mo:\n" +
+                    "<http://purl.org/ontology/mo/>\n" +
+                    "SELECT ?artist\n" +
+                    "WHERE {?artist a\n" +
+                    "mo:MusicArtist}";
+            Query query = QueryFactory.create(queryString);
+            QueryExecution queryExecution = QueryExecutionFactory.createServiceRequest("http://dbtune.org/musicbrainz/sparql", query);
+            try {
+                ResultSet resultSet = queryExecution.execSelect();
+                while (resultSet.hasNext()){
+                    QuerySolution solution = resultSet.nextSolution();
+                    showLogAndToast(solution.toString());
+                }
+            } finally {
+                queryExecution.close();
             }
+            return null;
         }
-        tView.setText(output);
 
-        loadUserInfo();
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            showLogAndToast("Finish!");
+        }
     }
 
-    private String getInfo(InfModel infmodel, Model data, String output) {
-        StmtIterator iter = data.listStatements();
-        float unitPrice = 0;
-        int quantity = 0;
-        while (iter.hasNext()) {
-            Statement stmt = iter.nextStatement();
-            // Resource subject = stmt.getSubject();
-            Property predicate = stmt.getPredicate();
-            String propertyValue = stmt.getObject().toString();
-            if(propertyValue.indexOf('^') != -1 )
-                propertyValue = propertyValue.substring(0,propertyValue.indexOf('^'));
-            if (predicate.toString().contains("OrderNumber"))
-                output += "OrderNumber = " + propertyValue + "\n";
-            else if (predicate.toString().contains("OrderDate"))
-                output += "OrderDate = " + propertyValue + "\n";
-            else if (predicate.toString().contains("FirstName"))
-                output += "FirstName = " + propertyValue + "\n";
-            else if (predicate.toString().contains("LastName"))
-                output += "LastName = " + propertyValue + "\n";
-            else if (predicate.toString().contains("ItemName"))
-                output += "ItemName = " + propertyValue + "\n";
-            else if (predicate.toString().contains("Quantity")) {
-                output += "Quantity = " + propertyValue + "\n";
-                quantity = Integer.valueOf(propertyValue);
-            } else if (predicate.toString().contains("shippingAddress"))
-                output += "ShippingAddress: " + "\n";
-            else if(predicate.toString().contains("Street"))
-                output += "\t Street = " + propertyValue + "\n";
-            else if(predicate.toString().contains("City"))
-                output += "\t City = " + propertyValue + "\n";
-            else if(predicate.toString().contains("State"))
-                output += "\t State = " + propertyValue + "\n";
-            else if(predicate.toString().contains("Zip"))
-                output += "\t Zip = " + propertyValue + "\n";
-            else if (predicate.toString().contains("unitPrice"))
-                unitPrice = Float.valueOf(propertyValue);
-        }
-        output += "TotalPrice = " + quantity * unitPrice + "\n";
-        return output;
-    }
+    public void loadUserInfo(){
+        startCountingTime= System.currentTimeMillis();
 
-    private void loadUserInfo(){
-        Model model = FileManager.get().loadModel("assets/normal_instance.rdf");
+        Model model = FileManager.get().loadModel("assets/music_ontology.owl");
         showLogAndToast(model.toString());
         String queryString = "PREFIX ns0: <http://csc750/p2/reference.owl#> " +
                 "PREFIX owl: <http://www.w3.org/2002/07/owl#> " +
+                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> " +
                 "SELECT * WHERE { " +
-                "?p ns0:OrderDate ?firstname ." +
+                "?p rdfs:comment ?comment ." +
                 "}";
         Query query = QueryFactory.create(queryString);
         QueryExecution qexec = QueryExecutionFactory.create(query, model);
@@ -147,37 +120,19 @@ public class MainActivity extends AppCompatActivity {
             ResultSet results = qexec.execSelect();
             while (results.hasNext()){
                 QuerySolution solution = results.nextSolution();
-                showLogAndToast(solution.toString());
-                Literal literal = solution.getLiteral("firstname");
-                showLogAndToast(literal.getString());
+                showLog(solution.toString());
+                Literal literal = solution.getLiteral("comment");
+                //showLogAndToast(literal.getString());
             }
         } finally {
             qexec.close();
         }
-//        String queryString =
-//                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> " +
-//                        "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
-//                        "PREFIX mo: <http://purl.org/ontology/mo/> " +
-//                        "SELECT * WHERE { " +
-//                        " ?p mo:MusicArtist ?interest ." +
-//                        "}";
-//        Query query = QueryFactory.create(queryString);
-//        QueryExecution qexec = QueryExecutionFactory.create(query, model);
-//        try {
-//            ResultSet results = qexec.execSelect();
-//            while (results.hasNext()){
-//                QuerySolution solution = results.nextSolution();
-//                showLogAndToast(solution.toString());
-//                Resource resource = (Resource) solution.get("interest");
-//                showLogAndToast(resource.getURI());
-//                //Literal name = solution.getLiteral("interest");
-//                //showLogAndToast(name.getString());
-//            }
-//        } finally {
-//            qexec.close();
-//        }
-    }
 
+        stopCountingTime = System.currentTimeMillis()-startCountingTime;
+        float timeElapsed2 = stopCountingTime;
+        timeElapsed = timeElapsed2/1000;
+        showLogAndToast("Load time: " + timeElapsed);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
