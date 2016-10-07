@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Music Recommend</string>
     <string name="action_settings">Settings</string>
+    <string name="radio_artist">Artist</string>
+    <string name="radio_track">Track</string>
+    <string name="search">Search</string>
 </resources>
