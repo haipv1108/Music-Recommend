@@ -1,0 +1,217 @@
+<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc  = "http://purl.org/dc/elements/1.1/"
+         xmlns:mq  = "http://musicbrainz.org/mm/mq-1.1#"
+         xmlns:mm  = "http://musicbrainz.org/mm/mm-2.1#">
+  <mq:Result>
+    <mq:status>OK</mq:status>
+    <mm:artistList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+      </rdf:Bag>
+    </mm:artistList>
+  </mq:Result>
+
+  <mm:Artist rdf:about="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11">
+    <dc:title>Portishead</dc:title>
+    <mm:sortName>Portishead</mm:sortName>
+    <mm:albumList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/67b24a4a-f1d4-427b-9269-0cfec4b98073"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/16aaeff4-555a-4ce0-8054-d322922355f5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/9617b352-ab9d-496c-ad6e-9a7f22ef9ee2"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/3677c7a6-03a6-4709-a7aa-edaea95ce473"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/eabd233f-c56f-404e-a16c-760d254d84c3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/5baf976e-185e-4699-8012-c6f4cec36400"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/8f468f36-8c7e-4fc1-9166-50664d267127"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/e962354a-28f2-44b1-9a26-c8092de4d4f3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/035d097b-edf9-43fa-a2b9-0282592eb88c"/>
+      </rdf:Bag>
+    </mm:albumList>
+  </mm:Artist>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e">
+    <dc:title>Dummy</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/8facb8ab-0b31-4d06-907f-0a9c9a72383c"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/44d90dca-5290-4cb3-af38-518818835f23"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/fda455fb-1b25-4863-8619-10173e721c84"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/40bf5aa3-c0e8-415b-875b-142139bd6290"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/97fce074-7011-46f0-8797-902857dff5cc"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/86a06e29-4013-446b-a538-506d1aa9d0d5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/b6bcbf4f-a7f3-436e-a773-31136f94dd8d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/494eb918-4fde-4963-9357-e8b026e6b017"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/2e0fd007-31bb-4455-8e7d-28134609ae8a"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/974de1c9-dfee-49ba-882f-b5105944fdf5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/27bf0d33-156f-4a87-b427-1463ad53ff2a"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/67b24a4a-f1d4-427b-9269-0cfec4b98073">
+    <dc:title>Portishead</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/8d8f374f-8bfa-4109-8c55-c5a42fb29d48"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/03581e3c-4a2a-48ed-9e68-95258de198ef"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/bc09c531-7c6e-4471-8b5a-cadef586a0d4"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/bdfd1d69-0b69-4dcb-9256-1c13140ad8f5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/3e774235-1059-4318-a560-1cde9e15400d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/ec04657d-8068-4ea6-8583-ed13ed617874"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/4f32a7f9-8682-4201-95c7-1272380ef4a2"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/c0ce0d63-cfd1-4a28-a392-9692b86f57e4"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/52df3195-efac-4dad-9d90-22efa99e766f"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/0cf0228b-c661-41b2-befd-caffc6786341"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/4f380593-97e9-4ffa-bec3-d5e869d2f6a6"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/16aaeff4-555a-4ce0-8054-d322922355f5">
+    <dc:title>Sour Times (Nobody loves me)</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/f058f2f0-7875-4e85-b1ac-0293ac7960df"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/8350067b-8983-40a8-9ff2-b5d639f27041"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/5ba8dffc-d546-4ce2-b291-c6ed64c137d3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/584cd37f-6c34-4e8f-807f-0607049bb758"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/9617b352-ab9d-496c-ad6e-9a7f22ef9ee2">
+    <dc:title>Sour (Disc One)</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/eee10b44-14c1-41e9-a18d-cbd0ff06f800"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/6acd2d48-3a2b-44cd-834f-e0a3e95cecda"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/a18de590-fb8d-483e-a950-c1188a838d60"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/69bfdf2d-ba09-4d1c-a867-4c529db591a5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/053bb9d0-c661-4b25-9537-18e5f240ff9f"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/3677c7a6-03a6-4709-a7aa-edaea95ce473">
+    <dc:title>Roseland NYC Live</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/1cf34447-7731-40a4-a2ba-347866a13c44"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/f71a27a7-4845-463c-9c67-ffb96a6b5a8f"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/29b908fa-10bb-4271-ac5a-0cadeab20277"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/ae6fdf61-6490-4247-a5d2-2dd7dc3dab85"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/88782e6e-c28c-43b2-b1ad-1b3acd3ffa04"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/68f60314-a920-42b9-8f60-fb6bd54f3264"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/495d3433-9a9c-4ee1-b124-ffc85649a264"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/d0f748fa-7982-419e-b8ba-f0eec8b38fec"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/d6275ed3-a6b9-4490-81bf-0e71189df26b"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/04b2dbf0-a469-4082-95a1-56b0cb783841"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/96901548-d41d-4186-8d55-ad2cc755a2d6"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/656fc63e-a6e0-4c88-a7ce-ba5a15291196"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/eabd233f-c56f-404e-a16c-760d254d84c3">
+    <dc:title>Roseland NYC live</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/dadee897-854d-4d6e-a375-fcd5586b0c74"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/db45ed76-f5bf-430f-a19f-fbe3cd1c77d3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/d5050499-3035-4daf-8493-ba0aafe1836d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/322a32ae-3487-4a4b-a9d9-f7a6e30c10f3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/4b8928cd-19e3-4b11-bf08-a1b35c0414d6"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/fb97d8d6-3952-459b-8b3a-d404dd68af21"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/9eb6ea8d-89ce-4566-978f-d0367a20efb0"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/6c7fadb6-2cca-4a20-b8df-9994e7008cb2"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/2a37ad88-330c-4e31-abc6-331e20621805"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/cf8ebc20-e0d4-4881-ab54-804d97e75aa4"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/6b770b21-5c8f-4a93-8f90-11bc6de33ee8"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/5baf976e-185e-4699-8012-c6f4cec36400">
+    <dc:title>Portishead</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/d2d7e3b5-c49e-49f3-b442-ccdc1430a262"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/4e22d68a-19a2-4fd4-a29f-36bc05fc81fe"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/54727d71-8789-407c-a622-3e1acf01e178"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/0082002e-4ac5-4a6a-88c9-a95f480c0f02"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/c4310335-9213-46a6-af81-b86fcb1975ed"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/4cc1cd3c-965a-467c-a4c7-1049a0682b3d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/f831bf4a-df9e-40c1-9b8c-aa1b40f4b13f"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/0d61fbd1-2649-4411-a892-b8ed4c388266"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/073e2d76-5c7e-43b2-aef1-2512cda7f8a3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/f49db552-8a2e-4a29-9ea2-a0d48a7723ef"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/34745941-69c5-401a-bdb9-ae761a9b3562"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/8f468f36-8c7e-4fc1-9166-50664d267127">
+    <dc:title>Dummy</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/b5d7d380-f43a-4c1f-a5de-694150b093ac"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/1234a7ae-2af2-4291-aa84-bd0bafe291a1"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/e97f805a-ab48-4c52-855e-07049142113d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/c837f888-d471-4b07-bcbc-1b9f7406ec1a"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/9170054a-8a9b-4f33-b31f-4ed58347154a"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/46d6ebba-8d3f-4600-a2a3-9eab4713458d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/977c23ba-10e0-4c03-a882-5896e58717ae"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/8a49dba0-253a-4535-b87f-78bb035336ce"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/c7baf0bc-77ed-454e-92a0-687f6b70d612"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/5efc1689-a6e8-45d3-a481-774be58e8b59"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/145f5c43-0ac2-4886-8b09-63d0e92ded5d"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/e962354a-28f2-44b1-9a26-c8092de4d4f3">
+    <dc:title>Sour Times (Nobody Loves Me)</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/230365bb-caf3-41a9-9c27-51294f9954e1"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/d45e3f81-5f21-4eaf-bd07-283ce4b26b02"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/5eb94502-c632-4751-ab50-67747171c6a7"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/c22502a8-babf-4a96-bd40-f7e879cfa865"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/33f21b05-82fa-4f63-bedb-e093a646185b"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/c233597a-1004-40dd-985d-2a5eb1b8da48"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/035d097b-edf9-43fa-a2b9-0282592eb88c">
+    <dc:title>Unknown</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/6161d703-7bfe-4cf0-8b21-a717edd3325c"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/7d707857-bf63-435e-8cb2-37038d81e563"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+</rdf:RDF>

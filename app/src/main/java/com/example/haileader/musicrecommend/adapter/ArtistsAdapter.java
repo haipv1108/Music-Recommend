@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.haileader.musicrecommend.R;
-import com.example.haileader.musicrecommend.model.Artist;
+import com.example.haileader.musicrecommend.model.Artist_;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import java.util.List;
  */
 public class ArtistsAdapter extends RecyclerView.Adapter<ArtistsAdapter.ViewHolder>{
 
-    private List<Artist> items;
+    private List<Artist_> items;
 
-    public ArtistsAdapter(List<Artist> items){
+    public ArtistsAdapter(List<Artist_> items){
         this.items = items;
     }
 
@@ -30,7 +30,7 @@ public class ArtistsAdapter extends RecyclerView.Adapter<ArtistsAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Artist item = items.get(position);
+        Artist_ item = items.get(position);
         holder.name.setText(item.name);
         holder.uri.setText(item.uri);
     }

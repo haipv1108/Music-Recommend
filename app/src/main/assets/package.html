@@ -1,0 +1,234 @@
+<html>
+<body>
+<h2>Introduction</h2>
+<p>
+    This is a Java port of the MusicBrainz API, written by
+    Leigh Dodds (<a href="mailto:leigh@ldodds.com">leigh@ldodds.com</a>,
+    <a href="http://www.ldodds.com">http://www.ldodds.com</a>). For more
+    information about the MusicBrainz project see: <a href="http://www.musicbrainz.org">http://www.musicbrainz.org</a>.
+</p>
+
+<h2>Getting Started</h2>
+
+<p>
+    The MusicBrainz web service has two types of query: those that are accessible
+    via an HTTP GET request -- these take a unique artist/album/track identifier
+    in the URL path info -- and those that are accessible via an HTTP POST request.
+    The latter involving posting an RDF document describing the query to a CGI
+    application, which will then return an RDF document describing the results.
+</p>
+
+<p>
+    The details on constructing a MusicBrainz query, including constructing
+    the RDF query documents, is totally encapsulated within the provided implementation
+    ({@link com.ldodds.musicbrainz.MusicBrainz}, {@link com.ldodds.musicbrainz.MusicBrainzImpl},
+    {@link com.ldodds.musicbrainz.Templates}).
+</p>
+
+<p>
+    The responses from the web service are made available in two formats: as
+    "raw" RDF (actually Jena 2 Model instances) or via some simple JavaBeans
+    ({@link com.ldodds.musicbrainz.Artist}, {@link com.ldodds.musicbrainz.Album},
+    {@link com.ldodds.musicbrainz.Track}, {@link com.ldodds.musicbrainz.TrackSummary}). These
+    JavaBeans are instantiated by a factory class ({@link com.ldodds.musicbrainz.BeanPopulator}) which is capable
+    of navigating the
+    RDF graph returned by different MusicBrainz queries and pulling out the
+    required data.
+</p>
+
+<p>
+    This means that you can choose to ignore the RDF details if you'd prefer, or
+    dig around in the results and perform operations on the RDF graph.
+</p>
+
+<p>
+    Most of the MusicBrainz queries have a "depth" parameter. This equates to
+    setting the level of detail in the results. For example when querying about
+    an Album, do you also want details of all tracks, the artist, and possibly
+    other albums by the same artist? Increasing the depth parameter increases
+    the level of detail. As a rough guide, 2 is a "shallow" query, 4 is a
+    medium query and 6 is a "deep" query. Play with the level of detail to get a
+    feel for what's returned in different cases. However you should try to carefully
+    select the depth of your query to make sure that you only retrieve as much information
+    as you really need.
+</p>
+
+<h3>The "Raw RDF" Interface</h3>
+
+<p>
+    Accessing the RDF data directly is very straight-forward. Firstly create
+    an implementation of the {@link com.ldodds.musicbrainz.MusicBrainz} interface:
+</p>
+
+<pre>
+<code>
+    MusicBrainz server = new MusicBrainzImpl();
+</code>
+</pre>
+
+<p>
+    There is only a single implementation provided in this API ({@link com.ldodds.musicbrainz.MusicBrainImpl}).
+    The object has an alternate constructor that allows you to specify the host
+    name of the MusicBrainz server, in case you need to connect to a mirror.
+</p>
+
+<p>
+    Next we perform a query:
+</p>
+
+<pre>
+<code>
+    //name of an album
+    String name = "Second Toughest In The Infants";
+    //medium query
+    int depth = 4;
+    //maximum number of items to return
+    int maxItems = 1;
+
+    Model results = server.findAlbumByName(name, depth, maxItems);
+</code>
+</pre>
+
+<p>
+    The <code>maxItems</code> parameter, which is accepted by several methods, indicates to
+    the MusicBrainz server how many results it can return. E.g. if there are
+    two albums with similar names, can it return both or just the first?
+    There is no way to fetch <i>all</i> matches, other than setting maxItems to
+    be an arbitrarily large value.
+</p>
+
+<p>
+    At present the MusicBrainz web service supports wildcarding (% = zero or
+    more characters). However it is possible that this may change in the
+    future, so use with care.
+</p>
+
+<p>
+    At this point you have a Jena Model containing the results. This will
+    basically be an {@link com.ldodds.musicbrainz.MQ.Result mq:Result} which has an
+    {@link com.ldodds.musicbrainz.MQ.trackList mq:trackList},
+    {@link com.ldodds.musicbrainz.MQ.artistList mq:artistList}, or {@link com.ldodds.musicbrainz.MQ.albumList mq:albumList} property.
+    Examine {@link com.ldodds.musicbrainz.MM} and {@link com.ldodds.musicbrainz.MQ} to see what RDF classes and properties the
+    MusicBrainz service can return.
+</p>
+
+<h3>The Bean Interface</h3>
+
+<p>
+    Using the Bean interface involves exactly the same steps as using the
+    RDF server above, with the addition of one extra line of code:
+</p>
+
+<pre>
+<code>
+    List albums = BeanPopulator.getAlbums(model);
+</code>
+</pre>
+
+<p>
+    This invokes a method on the BeanPopulator factory class, asking it to
+    extract the metadata (in this example, an <code>mm:Album</code>) from the graph.
+    The factory will create instances of the Album, Artist and Track beans
+    and populate them with the results. With "deep" queries you'll find that
+    an Artists and Tracks will be associated with their Albums, so you can
+    do the following:
+</p>
+
+<pre>
+<code>
+    Album album = albums.get(0);
+    Artist artist = album.getArtist();
+    List tracks = album.getTracks();
+    //process the results...
+</code>
+</pre>
+
+<p>
+    This alternate interface means that the details of the underlying RDF
+    data is totally hidden.
+</p>
+
+<p>
+    Note that at present the unique identifiers stored in the beans are the raw identifiers,
+    and not URIs.
+</p>
+
+<p>
+    For more examples of how to use the bean interface, see the unit tests.
+    There is one test for each MusicBrainz query.
+</p>
+
+<h2>Known Bugs and Limitations</h2>
+
+<p>
+    The initial version of this API only supports a subset of the MusicBrainz
+    API. Specifically it does not yet support the Authenticate and Submit
+    requests required to actually submit new entries into the database. It also
+    does not yet support the FileInfoLookup function. Later versions of this API
+    will support all functionality. At present the API is read-only, but is
+    complete enough to develop Java based applications.
+</p>
+
+<p>
+    The {@link MusicBrainz#findDistinctTRMId} implementation is untested as there appears
+    to be a bug in the MusicBrainz server code that makes this result always return no
+    results. See <a href="http://musicbrainz.org/archives/irc/musicbrainz/2003-09-16.html#T22-21-14">IRC logs</a>.
+</p>
+
+<p>
+    The {@link MusicBrainz#getTrackInfoFromTRMId} implementation works, but has not
+    had adequate testing as there appears to be some data errors in the MusicBrainz
+    database: specifically the same trmid associated with the same track more than once.
+    See <a href="http://musicbrainz.org/archives/irc/musicbrainz/2003-09-16.html#T21-57-32">IRC logs</a>
+</p>
+
+<h2>Bug Reporting</h2>
+
+<p>If you encounter bugs in this code then please report them to
+    <a href="mailto:leigh@ldodds.com">leigh@ldodds.com</a>. Please include the following information:
+</p>
+
+<ul>
+    <li>[MB] as an email subject line prefix</li>
+    <li>API version</li>
+    <li>Java VM Version</li>
+    <li>Example code and/or query data (i.e. means to recreate the bug)</li>
+</ul>
+
+<p>
+    If you encounter problems with the data being returned then contact
+    the MusicBrainz project directly. I DO NOT have access to the source
+    database so cannot fix up data errors or server-side bugs.
+</p>
+
+<p>
+    General contact details for MusicBrainz can be found at:
+    <a href="http://www.musicbrainz.org/support/contact.html">http://www.musicbrainz.org/support/contact.html</a>.
+</p>
+
+<h3>Related Information</h3>
+
+<p>
+    For information on the original C API see the following documents:
+</p>
+
+<ul>
+    <li><a href="http://www.musicbrainz.org/client_howto.html">Online HOWTO</a></li>
+    <li><a href="http://www.musicbrainz.org/docs/mb_client/index.html">Online Docs</a></li>
+    <li><a href="http://www.musicbrainz.org/docs/mb_client/queries_h.html">Online Reference</a></li>
+</ul>
+
+<p>
+    See the MusicBrainz website, IRC channel or mailing lists for more
+    information on the MusicBrainz project and applications built using their
+    data and code:
+</p>
+
+<ul>
+    <li>http://www.musicbrainz.org/support/contact.html</li>
+    <li>http://www.musicbrainz.org/list.html</li>
+</ul>
+
+
+</body>
+</html>

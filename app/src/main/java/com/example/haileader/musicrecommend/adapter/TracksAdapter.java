@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.haileader.musicrecommend.R;
-import com.example.haileader.musicrecommend.model.Track;
+import com.example.haileader.musicrecommend.model.Track_;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import java.util.List;
  */
 public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder>{
 
-    private List<Track> items;
+    private List<Track_> items;
 
-    public TracksAdapter(List<Track> items){
+    public TracksAdapter(List<Track_> items){
         this.items = items;
     }
 
@@ -30,7 +30,7 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Track item = items.get(position);
+        Track_ item = items.get(position);
         holder.name.setText(item.name);
         holder.uri.setText(item.uri);
     }

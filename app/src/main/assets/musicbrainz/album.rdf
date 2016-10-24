@@ -1,0 +1,141 @@
+<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc  = "http://purl.org/dc/elements/1.1/"
+         xmlns:mq  = "http://musicbrainz.org/mm/mq-1.1#"
+         xmlns:mm  = "http://musicbrainz.org/mm/mm-2.1#">
+  <mq:Result>
+    <mq:status>OK</mq:status>
+    <mm:albumList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e"/>
+      </rdf:Bag>
+    </mm:albumList>
+  </mq:Result>
+
+  <mm:Album rdf:about="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e">
+    <dc:title>Dummy</dc:title>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/8facb8ab-0b31-4d06-907f-0a9c9a72383c"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/44d90dca-5290-4cb3-af38-518818835f23"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/fda455fb-1b25-4863-8619-10173e721c84"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/40bf5aa3-c0e8-415b-875b-142139bd6290"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/97fce074-7011-46f0-8797-902857dff5cc"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/86a06e29-4013-446b-a538-506d1aa9d0d5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/b6bcbf4f-a7f3-436e-a773-31136f94dd8d"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/494eb918-4fde-4963-9357-e8b026e6b017"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/2e0fd007-31bb-4455-8e7d-28134609ae8a"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/974de1c9-dfee-49ba-882f-b5105944fdf5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/27bf0d33-156f-4a87-b427-1463ad53ff2a"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Artist rdf:about="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11">
+    <dc:title>Portishead</dc:title>
+    <mm:sortName>Portishead</mm:sortName>
+    <mm:albumList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/16aaeff4-555a-4ce0-8054-d322922355f5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/9617b352-ab9d-496c-ad6e-9a7f22ef9ee2"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/3677c7a6-03a6-4709-a7aa-edaea95ce473"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/eabd233f-c56f-404e-a16c-760d254d84c3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/5baf976e-185e-4699-8012-c6f4cec36400"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/8f468f36-8c7e-4fc1-9166-50664d267127"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/e962354a-28f2-44b1-9a26-c8092de4d4f3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/035d097b-edf9-43fa-a2b9-0282592eb88c"/>
+      </rdf:Bag>
+    </mm:albumList>
+  </mm:Artist>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/8facb8ab-0b31-4d06-907f-0a9c9a72383c">
+    <dc:title>Mysterons</dc:title>
+    <mm:trackNum>1</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>b4475531-d98e-49d0-94f6-d566391cd0ad</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/44d90dca-5290-4cb3-af38-518818835f23">
+    <dc:title>Sour Times</dc:title>
+    <mm:trackNum>2</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/fda455fb-1b25-4863-8619-10173e721c84">
+    <dc:title>Strangers</dc:title>
+    <mm:trackNum>3</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>35ab891c-f588-4165-8f76-b6447bfb3c4d</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/40bf5aa3-c0e8-415b-875b-142139bd6290">
+    <dc:title>It Could Be Sweet</dc:title>
+    <mm:trackNum>4</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>dbf0386e-b01d-4dd0-8c4e-e8de2ee597e9</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/97fce074-7011-46f0-8797-902857dff5cc">
+    <dc:title>Wandering Star</dc:title>
+    <mm:trackNum>5</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/86a06e29-4013-446b-a538-506d1aa9d0d5">
+    <dc:title>It's A Fire</dc:title>
+    <mm:trackNum>6</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>77f03965-8bcd-438f-bb7e-212b864ea44f</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/b6bcbf4f-a7f3-436e-a773-31136f94dd8d">
+    <dc:title>Numb</dc:title>
+    <mm:trackNum>7</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>d1ca8e01-a593-45ce-bc52-cb3a7c99ce9f</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/494eb918-4fde-4963-9357-e8b026e6b017">
+    <dc:title>Roads</dc:title>
+    <mm:trackNum>8</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>408b0f48-33f1-4203-8521-0281cc9ed0aa</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/2e0fd007-31bb-4455-8e7d-28134609ae8a">
+    <dc:title>Pedestal</dc:title>
+    <mm:trackNum>9</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>5a117a97-5586-4276-ab73-551cce853ce1</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/974de1c9-dfee-49ba-882f-b5105944fdf5">
+    <dc:title>Biscuit</dc:title>
+    <mm:trackNum>10</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>af2896f5-57b3-4a4b-94ad-cb67a8f980a8</mm:trmid>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/27bf0d33-156f-4a87-b427-1463ad53ff2a">
+    <dc:title>Glory Box</dc:title>
+    <mm:trackNum>11</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>c1b23f30-68bf-4f29-8989-d9bc1ea4764f</mm:trmid>
+  </mm:Track>
+
+</rdf:RDF>
+

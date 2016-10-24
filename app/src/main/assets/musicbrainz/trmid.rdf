@@ -1,0 +1,49 @@
+<!--
+<mq:FindDistinctTRMID>
+   <mq:depth>2</mq:depth>
+   <mq:artistName>Portishead</mq:artistName>
+   <mq:trackName>Strangers</mq:trackName>
+</mq:FindDistinctTRMID>
+
+-->
+<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc  = "http://purl.org/dc/elements/1.1/"
+         xmlns:mq  = "http://musicbrainz.org/mm/mq-1.1#"
+         xmlns:mm  = "http://musicbrainz.org/mm/mm-2.1#">
+  <mq:Result>
+    <mq:status>OK</mq:status>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/fda455fb-1b25-4863-8619-10173e721c84"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mq:Result>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/fda455fb-1b25-4863-8619-10173e721c84">
+    <dc:title>Strangers</dc:title>
+    <mm:trackNum>3</mm:trackNum>
+    <dc:creator
+     rdf:resource="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11"/>
+    <mm:trmid>35ab891c-f588-4165-8f76-b6447bfb3c4d</mm:trmid>
+  </mm:Track>
+
+  <mm:Artist rdf:about="http://musicbrainz.org/artist/8f6bd1e4-fbe1-4f50-aa9b-94c450ec0f11">
+    <dc:title>Portishead</dc:title>
+    <mm:sortName>Portishead</mm:sortName>
+    <mm:albumList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/911e3f30-192e-4c3d-aa25-2a89d4202a3e"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/67b24a4a-f1d4-427b-9269-0cfec4b98073"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/16aaeff4-555a-4ce0-8054-d322922355f5"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/9617b352-ab9d-496c-ad6e-9a7f22ef9ee2"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/3677c7a6-03a6-4709-a7aa-edaea95ce473"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/eabd233f-c56f-404e-a16c-760d254d84c3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/5baf976e-185e-4699-8012-c6f4cec36400"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/8f468f36-8c7e-4fc1-9166-50664d267127"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/e962354a-28f2-44b1-9a26-c8092de4d4f3"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/035d097b-edf9-43fa-a2b9-0282592eb88c"/>
+      </rdf:Seq>
+    </mm:albumList>
+  </mm:Artist>
+
+</rdf:RDF>

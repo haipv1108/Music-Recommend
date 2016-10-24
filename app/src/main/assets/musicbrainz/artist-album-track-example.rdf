@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc  = "http://purl.org/dc/elements/1.1/"
+         xmlns:mq  = "http://musicbrainz.org/mm/mq-1.1#"
+         xmlns:mm  = "http://musicbrainz.org/mm/mm-2.1#">
+  <mq:Result>
+    <mq:status>OK</mq:status>
+    <mm:albumList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/album/1d16698f-e1fc-48b3-ab4a-941c2ecec5bb"/>
+      </rdf:Bag>
+    </mm:albumList>
+
+  </mq:Result>
+  <mm:Album rdf:about="http://musicbrainz.org/album/1d16698f-e1fc-48b3-ab4a-941c2ecec5bb">
+    <dc:title>Rubycon</dc:title>
+    <dc:creator rdf:resource="http://musicbrainz.org/artist/23d8426c-18c7-46e6-a51d-7395bd43c641"/>
+    <mm:cdindexidList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/cdindex/borOdvYNUkc2SF8GrzPepad0H3M-"/>
+      </rdf:Bag>
+    </mm:cdindexidList>
+    <mm:releaseType rdf:resource="http://musicbrainz.org/mm/mm-2.1#TypeAlbum"/>
+    <mm:releaseStatus rdf:resource="http://musicbrainz.org/mm/mm-2.1#StatusOfficial"/>
+    <mm:trackList>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/82e7dbbd-814a-4c46-bd0c-d7d65af67a3f"/>
+        <rdf:li rdf:resource="http://musicbrainz.org/track/d94fc569-96b3-4c75-abd5-d0d381d7cc58"/>
+      </rdf:Seq>
+    </mm:trackList>
+  </mm:Album>
+
+  <mm:Artist rdf:about="http://musicbrainz.org/artist/23d8426c-18c7-46e6-a51d-7395bd43c641">
+    <dc:title>Tangerine Dream</dc:title>
+    <mm:sortName>Tangerine Dream</mm:sortName>
+  </mm:Artist>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/82e7dbbd-814a-4c46-bd0c-d7d65af67a3f">
+    <dc:title>Rubycon (Part I)</dc:title>
+    <dc:creator rdf:resource="http://musicbrainz.org/artist/23d8426c-18c7-46e6-a51d-7395bd43c641"/>
+    <mm:duration>1037333</mm:duration>
+    <mm:trmidList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/trmid/a0bd6c41-b83d-418a-9179-f4bc57597f86"/>
+      </rdf:Bag>
+    </mm:trmidList>
+  </mm:Track>
+
+  <mm:Track rdf:about="http://musicbrainz.org/track/d94fc569-96b3-4c75-abd5-d0d381d7cc58">
+    <dc:title>Rubycon (Part II)</dc:title>
+    <dc:creator rdf:resource="http://musicbrainz.org/artist/23d8426c-18c7-46e6-a51d-7395bd43c641"/>
+    <mm:duration>1054066</mm:duration>
+    <mm:trmidList>
+      <rdf:Bag>
+        <rdf:li rdf:resource="http://musicbrainz.org/trmid/79e024e2-66d2-4eb1-8665-bb0536a7a88d"/>
+      </rdf:Bag>
+    </mm:trmidList>
+  </mm:Track>
+
+</rdf:RDF>
